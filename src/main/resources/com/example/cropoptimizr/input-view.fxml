@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="600.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cropoptimizr.PestController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="500.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextField fx:id="n" layoutX="45.0" layoutY="54.0" />
+            <Text layoutX="45.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nitrogen" />
+            <TextField fx:id="p" layoutX="45.0" layoutY="139.0" />
+            <Text layoutX="45.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phosphorus" />
+            <TextField fx:id="k" layoutX="45.0" layoutY="228.0" />
+            <Text layoutX="45.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potassium" />
+            <TextField fx:id="temp" layoutX="269.0" layoutY="54.0" />
+            <Text layoutX="269.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temperature" />
+            <TextField fx:id="humid" layoutX="269.0" layoutY="139.0" />
+            <Text layoutX="269.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Humidity" />
+            <TextField fx:id="ph" layoutX="468.0" layoutY="56.0" prefHeight="25.0" prefWidth="149.0" />
+            <Text layoutX="468.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ph" />
+            <TextField fx:id="rain" layoutX="468.0" layoutY="139.0" />
+            <Text layoutX="468.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rainfall" />
+            <ChoiceBox fx:id="pestBox" layoutX="269.0" layoutY="228.0" prefWidth="150.0" />
+            <Text layoutX="266.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pest" />
+            <Button fx:id="resultButton" layoutX="164.0" layoutY="541.0" mnemonicParsing="false" onAction="#pressResult" prefHeight="44.0" prefWidth="303.0" text="Get Results" />
+            <TextArea fx:id="resultArea" layoutX="170.0" layoutY="430.0" prefHeight="98.0" prefWidth="290.0" />
+            <Text layoutX="466.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area (in hectares)" />
+            <TextField fx:id="area" layoutX="466.0" layoutY="228.0" />
+            <Line endX="520.800048828125" layoutX="109.0" layoutY="299.0" startX="-100.0" />
+            <Label layoutX="17.0" layoutY="318.0" text="Sensor Data (CSV)">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="82.0" layoutY="368.0" text="Enter File Path" />
+            <TextField layoutX="169.0" layoutY="364.0" prefHeight="26.0" prefWidth="290.0" />
+            <Label layoutX="170.0" layoutY="405.0" text="Results" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
