@@ -1,12 +1,8 @@
 package com.example.cropoptimizr;
 
-import org.apache.commons.math3.util.Pair;
 import org.pmml4s.model.Model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.util.*;
-import java.util.stream.IntStream;
 
 import static org.pmml4s.model.Model.fromFile;
 
@@ -19,7 +15,6 @@ public class CropRecommend {
     public CropRecommend(String pmmlFilePath) throws Exception {
         model = fromFile(pmmlFilePath);
     }
-
 
     public int findMaxValueIndex(Object[] array) {
         if (array == null || array.length == 0) {
@@ -36,12 +31,10 @@ public class CropRecommend {
                 maxIndex = i;
             }
         }
-
         return maxIndex;
     }
 
-
-    public String classifyCrop(Map<String, Double> values) {
+    private String getCropName(Map<String, Double> values) {
         Object[] valuesMap = Arrays.stream(model.inputNames())
                 .map(values::get)
                 .toArray();
@@ -58,14 +51,10 @@ public class CropRecommend {
         return crops[resIndex];
     }
 
-
-
-    public static String chaloKaamKaro(Double n, Double P, Double K, Double temp, Double humidity, Double ph, Double rainfall) {
-        List<Pair<String, String>> predictedValues = new ArrayList<>();
+    public static String getRecommendation(Double n, Double P, Double K, Double temp, Double humidity, Double ph, Double rainfall) {
         CropRecommend classifier;
-
         try {
-            classifier = new CropRecommend("C:\\Users\\DIPTI\\IdeaProjects\\CropOptimizr\\src\\main\\java\\com\\example\\cropoptimizr\\crop_modelfn.pmml");
+            classifier = new CropRecommend("E:\\CropOptimizer - Final\\CropOptimizr\\src\\main\\java\\com\\example\\cropoptimizr\\crop_modelfn.pmml");
 
             // Perform prediction using user input
             Map<String, Double> userInput = new HashMap<>();
@@ -77,7 +66,7 @@ public class CropRecommend {
             userInput.put("ph", ph);
             userInput.put("rainfall", rainfall);
 
-            String predictedCrop = classifier.classifyCrop(userInput);
+            String predictedCrop = classifier.getCropName(userInput);
             return predictedCrop;
         } catch (Exception ex) {
             System.out.println("Error: "+ex);

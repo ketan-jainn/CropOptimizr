@@ -4,12 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import static com.example.cropoptimizr.CropRecommend.chaloKaamKaro;
+import static com.example.cropoptimizr.CropRecommend.getRecommendation;
 
 public class PestController {
     public TextField area;
@@ -64,8 +62,6 @@ public class PestController {
         cropData.put("coffee", new CropData(1.0, 500.0, 0.1));
 
         // Get user input for crop type and farm area
-
-
         double farmArea = area;
 
         // Retrieve crop data from the crop data HashMap
@@ -75,23 +71,18 @@ public class PestController {
             double headsPer = crop.getHeadsPer();
             double grainCount = crop.getGrainCount();
             double grainWeight = crop.getGrainWeight();
-
             // Calculate the crop yield
             yield = (headsPer * grainCount * grainWeight) / 10000;
-
-
             System.out.println("--------Crop Yield:--------\n\t" + yield + "  t/ha");
             System.out.println("\t" + yield * farmArea + "  tons");
         } else {
             System.out.println("Invalid crop type!");
         }
-
-
         return yield * farmArea;
     }
 
 
-    public void pressResult(ActionEvent e) throws InterruptedException {
+    public void getResult(ActionEvent e) throws InterruptedException {
         String result;
         // TO GET PREDICTION
         int n1 = Integer.parseInt(n.getText());
@@ -102,19 +93,19 @@ public class PestController {
         int temp1 = Integer.parseInt(temp.getText());
         int rain1 = Integer.parseInt(rain.getText());
         double area1=Double.parseDouble(area.getText());
-        String whichCrop=chaloKaamKaro((double) n1, (double) p1, (double) k1, (double) temp1, (double) humid1, (double) ph1, (double) rain1);
+        String resultantCrop= getRecommendation((double) n1, (double) p1, (double) k1, (double) temp1, (double) humid1, (double) ph1, (double) rain1);
         Thread.sleep(500);
-        double y=calcYield(area1,whichCrop);
-        result = "Prediction: "+ whichCrop+"\n";
+        double y=calcYield(area1,resultantCrop);
+        result = "Prediction: "+ resultantCrop+"\n";
+
         // TO GET PESTICIDE
         String selectedKey = pestBox.getValue();
         if (selectedKey != null) {
             List<String> values = pestControlDictionary.get(selectedKey);
             if (values != null) {
-                List<String> pesticides = values;
-                int random  = (int)(Math.random()*(pesticides.toArray().length-0)+0);
-                result+="Predicted Yield: "+y+" Tonnes\n";
-                result+="Method to Control the Pest: \n"+pesticides.get(random)+"\n";
+                int random  = (int)(Math.random()*(values.toArray().length)+0);
+                result+="Predicted Yield: " + y + " Tonnes\n";
+                result += "Method to Control the Pest: \n"+ values.get(random)+"\n";
                 resultArea.setText(result);
             }
         }
@@ -122,25 +113,3 @@ public class PestController {
 }
 
 
-class CropData {
-    private double headsPer;
-    private double grainCount;
-    private double grainWeight;
-
-    public CropData(double headsPer, double grainCount, double grainWeight) {
-        this.headsPer = headsPer;
-        this.grainCount = grainCount;
-        this.grainWeight = grainWeight;
-    }
-
-    public double getHeadsPer(){
-        return headsPer;
-    }
-    public double getGrainCount() {
-        return grainCount;
-    }
-
-    public double getGrainWeight() {
-        return grainWeight;
-    }
-}

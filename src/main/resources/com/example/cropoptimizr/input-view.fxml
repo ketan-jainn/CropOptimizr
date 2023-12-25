@@ -63,7 +63,7 @@
             <Text layoutX="468.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rainfall" />
             <ChoiceBox fx:id="pestBox" layoutX="269.0" layoutY="228.0" prefWidth="150.0" />
             <Text layoutX="266.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pest" />
-            <Button fx:id="resultButton" layoutX="164.0" layoutY="541.0" mnemonicParsing="false" onAction="#pressResult" prefHeight="44.0" prefWidth="303.0" text="Get Results" />
+            <Button fx:id="resultButton" layoutX="164.0" layoutY="541.0" mnemonicParsing="false" onAction="#getResult" prefHeight="44.0" prefWidth="303.0" text="Get Results" />
             <TextArea fx:id="resultArea" layoutX="170.0" layoutY="430.0" prefHeight="98.0" prefWidth="290.0" />
             <Text layoutX="466.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area (in hectares)" />
             <TextField fx:id="area" layoutX="466.0" layoutY="228.0" />
