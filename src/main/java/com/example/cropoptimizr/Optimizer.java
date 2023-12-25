@@ -10,7 +10,7 @@ import java.util.List;
 
 import static com.example.cropoptimizr.CropRecommend.getRecommendation;
 
-public class PestController {
+public class Optimizer {
     public TextField area;
     private HashMap<String, ArrayList<String>> pestControlDictionary;
     @FXML
