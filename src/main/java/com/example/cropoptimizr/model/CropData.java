@@ -1,4 +1,4 @@
-package com.example.cropoptimizr;
+package com.example.cropoptimizr.model;
 
 public class CropData {
     private double headsPer;

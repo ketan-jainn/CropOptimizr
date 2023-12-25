@@ -11,4 +11,6 @@ module com.example.cropoptimizr {
 
     opens com.example.cropoptimizr to javafx.fxml;
     exports com.example.cropoptimizr;
+    exports com.example.cropoptimizr.model;
+    opens com.example.cropoptimizr.model to javafx.fxml;
 }

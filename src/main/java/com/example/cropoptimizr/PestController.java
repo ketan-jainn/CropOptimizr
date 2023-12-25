@@ -1,4 +1,5 @@
 package com.example.cropoptimizr;
+import com.example.cropoptimizr.model.CropData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
