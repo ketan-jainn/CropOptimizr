@@ -54,7 +54,7 @@ public class CropRecommend {
     public static String getRecommendation(Double n, Double P, Double K, Double temp, Double humidity, Double ph, Double rainfall) {
         CropRecommend classifier;
         try {
-            classifier = new CropRecommend("E:\\CropOptimizer - Final\\CropOptimizr\\src\\main\\java\\com\\example\\cropoptimizr\\crop_modelfn.pmml");
+            classifier = new CropRecommend("E:\\CropOptimizer - Final\\CropOptimizr\\src\\main\\java\\com\\example\\cropoptimizr\\model\\crop_modelfn.pmml");
 
             // Perform prediction using user input
             Map<String, Double> userInput = new HashMap<>();
